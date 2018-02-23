@@ -80,29 +80,61 @@ namespace HairSalon.Models.Tests
     }
 
     [TestMethod]
-    public void GetAll_ReturnsClients_ClientList()
+    public void Save_SavesToDatabase_ClientList()
     {
       //Arrange
-      string name = "John Smith";
-      string name2 = "Jane Doe";
-      string phone = "503-555-5555";
-      string phone2 = "503-555-6789";
-      string notes = "use #2 guard";
-      string notes2 = "razor cut";
-      int stylistId = 1;
-      int stylistId2 = 2;
-      Client newClient1 = new Client(name, phone, notes, stylistId);
-      Client newClient2 = new Client(name2, phone2, notes2, stylistId2);
-      List<Client> newList = new List<Client> { newClient1, newClient2 };
+      Client testClient = new Client("Kevin Jones", "503-555-5555", "use number 2 guard", 1);
 
       //Act
-      newClient1.Save();
-      newClient2.Save();
+      testClient.Save();
       List<Client> result = Client.GetAll();
+      List<Client> testList = new List<Client>{testClient};
 
       //Assert
-      CollectionAssert.AreEqual(newList, result);
+      CollectionAssert.AreEqual(testList, result);
     }
+
+    [TestMethod]
+    public void Save_AssignsIdToObject_Id()
+    {
+      //Arrange
+      Client testClient = new Client("Kevin Jones", "503-555-5555", "use number 2 guard", 1);
+      testClient.Save();
+
+      //Act
+      Client savedClient = Client.GetAll()[0];
+
+      int result = savedClient.GetId();
+      int testId = testClient.GetId();
+
+      //Assert
+      Assert.AreEqual(testId, result);
+    }
+
+    // [TestMethod]
+    // public void GetAll_ReturnsClients_ClientList()
+    // {
+    //   //Arrange
+    //   string name = "John Smith";
+    //   string name2 = "Jane Doe";
+    //   string phone = "503-555-5555";
+    //   string phone2 = "503-555-6789";
+    //   string notes = "use #2 guard";
+    //   string notes2 = "razor cut";
+    //   int stylistId = 1;
+    //   int stylistId2 = 2;
+    //   Client newClient1 = new Client(name, phone, notes, stylistId);
+    //   Client newClient2 = new Client(name2, phone2, notes2, stylistId2);
+    //   List<Client> newList = new List<Client> { newClient1, newClient2 };
+    //
+    //   //Act
+    //   newClient1.Save();
+    //   newClient2.Save();
+    //   List<Client> result = Client.GetAll();
+    //
+    //   //Assert
+    //   CollectionAssert.AreEqual(newList, result);
+    // }
 
   }
 }
