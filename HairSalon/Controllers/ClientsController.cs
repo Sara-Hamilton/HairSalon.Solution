@@ -14,14 +14,14 @@ namespace HairSalon.Controllers
       return View(allClients);
     }
 
-    // [HttpPost("/clients")]
-    // public ActionResult Create()
-    // {
-    //   Client newClient = new Client (Request.Form["new-name"], Request.Form["new-phone"], RequestForm["new-notes"], Int32.Parse(Request.Form["new-stylist"]));
-    //   newClient.Save();
-    //   List<Client> allClients = Client.GetAll();
-    //   return View("Index", allClients);
-    // }
+    [HttpPost("/clients")]
+    public ActionResult Create()
+    {
+      Client newClient = new Client (Request.Form["new-name"], Request.Form["new-phone"], RequestForm["new-notes"], Int32.Parse(Request.Form["new-stylist"]));
+      newClient.Save();
+      List<Client> allClients = Client.GetAll();
+      return View("Index", allClients);
+    }
 
     [HttpGet("/clients/new")]
     public ActionResult CreateForm()

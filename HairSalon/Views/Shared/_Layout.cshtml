@@ -7,8 +7,23 @@
     <link rel='stylesheet' href='~/css/styles.css'>
   </head>
   <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/clients">Clients</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/stylists">Stylists</a></li>
+          <li class="active"><a href="/clients">Clients</a></li>
+          <li><a href="/stylists/new">Add a Stylist</a></li>
+          <li><a href="/clients/new">Add a Client</a></li>
+        </ul>
+      </div>
+    </nav>
     <div class="container">
-      <h1>Hair Salon</h1>
+      <div class="jumbotron">
+        <h1>Hair Salon</h1>
+      </div>
         @RenderBody()
     </div>
   </body>
