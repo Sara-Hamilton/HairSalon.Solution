@@ -118,7 +118,7 @@ namespace HairSalon.Models.Tests
        int testId = testStylist.GetId();
 
        //Assert
-       Assert.AreEqual(testId + 1, result);
+       Assert.AreEqual(testId, result);
     }
 
      [TestMethod]
