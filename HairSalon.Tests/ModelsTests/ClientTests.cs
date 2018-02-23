@@ -52,5 +52,32 @@ namespace HairSalon.Models.Tests
       Assert.AreEqual(stylistId, stylistIdResult);
     }
 
+    [TestMethod]
+    public void Setters_TestingAllSetters_Various()
+    {
+      //Arrange
+      string name = "John Smith";
+      string name2 = "Jane Doe";
+      string phone = "503-555-5555";
+      string phone2 = "503-555-6789";
+      string notes = "use #2 guard";
+      string notes2 = "razor cut";
+      int stylistId = 1;
+      Client newClient = new Client(name, phone, notes, stylistId);
+
+      //Act
+      newClient.SetName(name2);
+      newClient.SetPhone(phone2);
+      newClient.SetNotes(notes2);
+      string nameResult = newClient.GetName();
+      string phoneResult = newClient.GetPhone();
+      string notesResult = newClient.GetNotes();
+
+      //Assert
+      Assert.AreEqual(name2 + "s", nameResult);
+      Assert.AreEqual(phone2, phoneResult);
+      Assert.AreEqual(notes2, notesResult);
+    }
+
   }
 }
