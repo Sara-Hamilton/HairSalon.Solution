@@ -19,7 +19,7 @@ namespace HairSalon.Models.Tests
     }
 
     [TestMethod]
-    public void Getters_TestingAllGetters_String()
+    public void Getters_TestingAllGetters_Various()
     {
       //Arrange
       string name = "John Smith";
@@ -33,9 +33,9 @@ namespace HairSalon.Models.Tests
       string phoneResult = newStylist.GetPhone();
 
       //Assert
-      Assert.AreEqual(name + "s", nameResult);
-      Assert.AreEqual(hireDate  + "s", hireDateResult);
-      Assert.AreEqual(phone  + "s", phoneResult);
+      Assert.AreEqual(name, nameResult);
+      Assert.AreEqual(hireDate, hireDateResult);
+      Assert.AreEqual(phone, phoneResult);
     }
 
   }
