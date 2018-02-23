@@ -145,7 +145,6 @@ namespace HairSalon.Models.Tests
 
       //Act
       Client foundClient = Client.Find(testClient.GetId());
-      testClient.SetName("wrong name");
 
       //Assert
       Assert.AreEqual(testClient, foundClient);
