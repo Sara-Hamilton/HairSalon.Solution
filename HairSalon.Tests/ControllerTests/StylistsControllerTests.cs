@@ -6,7 +6,7 @@ using HairSalon.Controllers;
 namespace HairSalon.Controllers.Tests
 {
     [TestClass]
-    public class ClientsControllerTest
+    public class StylistsControllerTest
     {
 
       [TestMethod]
