@@ -46,10 +46,10 @@ namespace HairSalon.Models.Tests
       int stylistIdResult = newClient.GetStylistId();
 
       //Assert
-      Assert.AreEqual(name +"s", nameResult);
-      Assert.AreEqual(phone +"s", phoneResult);
-      Assert.AreEqual(notes +"s", notesResult);
-      Assert.AreEqual(stylistId + 1, stylistIdResult);
+      Assert.AreEqual(name, nameResult);
+      Assert.AreEqual(phone, phoneResult);
+      Assert.AreEqual(notes, notesResult);
+      Assert.AreEqual(stylistId, stylistIdResult);
     }
 
   }
