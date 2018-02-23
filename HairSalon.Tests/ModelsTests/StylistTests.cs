@@ -19,6 +19,16 @@ namespace HairSalon.Models.Tests
     }
 
     [TestMethod]
+     public void GetAll_StylistEmptyAtFirst_0()
+     {
+       //Arrange, Act
+       int result = Stylist.GetAll().Count;
+
+       //Assert
+       Assert.AreEqual(0, result);
+     }
+
+    [TestMethod]
     public void Getters_TestingAllGetters_Various()
     {
       //Arrange
@@ -63,6 +73,21 @@ namespace HairSalon.Models.Tests
       Assert.AreEqual(hireDate2, hireDateResult);
       Assert.AreEqual(phone2, phoneResult);
     }
+
+    // [TestMethod]
+    //  public void Save_SavesStylistToDatabase_StylistList()
+    //  {
+    //    //Arrange
+    //    Stylist testStylist = new Stylist("Kim Jackson");
+    //    testStylist.Save();
+    //
+    //    //Act
+    //    List<Stylist> result = Stylist.GetAll();
+    //    List<Stylist> testList = new List<Stylist>{testStylist};
+    //
+    //    //Assert
+    //    CollectionAssert.AreEqual(testList, result);
+    //  }
 
   }
 }
