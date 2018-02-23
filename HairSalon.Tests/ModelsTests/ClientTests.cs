@@ -131,7 +131,6 @@ namespace HairSalon.Models.Tests
       newClient1.Save();
       newClient2.Save();
       List<Client> result = Client.GetAll();
-      newClient1.Save();
 
       //Assert
       CollectionAssert.AreEqual(newList, result);
