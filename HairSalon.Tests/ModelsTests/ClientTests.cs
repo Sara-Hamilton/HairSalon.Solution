@@ -29,5 +29,28 @@ namespace HairSalon.Models.Tests
       Assert.AreEqual(firstClient, secondClient);
     }
 
+    [TestMethod]
+    public void Getters_TestingAllGetters_Various()
+    {
+      //Arrange
+      string name = "John Smith";
+      string phone = "503-555-5555";
+      string notes = "use #2 guard";
+      int stylistId = 1;
+      Client newClient = new Client(name, phone, notes, stylistId);
+
+      //Act
+      string nameResult = newClient.GetName();
+      string phoneResult = newClient.GetPhone();
+      string notesResult = newClient.GetNotes();
+      int stylistIdResult = newClient.GetStylistId();
+
+      //Assert
+      Assert.AreEqual(name +"s", nameResult);
+      Assert.AreEqual(phone +"s", phoneResult);
+      Assert.AreEqual(notes +"s", notesResult);
+      Assert.AreEqual(stylistId + 1, stylistIdResult);
+    }
+
   }
 }
