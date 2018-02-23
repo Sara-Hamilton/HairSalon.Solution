@@ -85,7 +85,7 @@ namespace HairSalon.Models.Tests
 
        //Act
        List<Stylist> result = Stylist.GetAll();
-       List<Stylist> testList = new List<Stylist>{testStylist, testStylist};
+       List<Stylist> testList = new List<Stylist>{testStylist};
 
        //Assert
        CollectionAssert.AreEqual(testList, result);
