@@ -153,5 +153,26 @@ namespace HairSalon.Models.Tests
         Assert.AreEqual(testStylist, foundStylist);
       }
 
+      // [TestMethod]
+      // public void GetClients_RetrievesAllItemsWithStylist_ClientList()
+      // {
+      //   //Arrange
+      //   DateTime hireDate = new DateTime (2015, 3, 1);
+      //   Stylist testStylist = new Stylist("Kim Jackson", hireDate, "503-555-5555");
+      //   testStylist.Save();
+      //
+      //   //Act
+      //   Client firstClient = new Client("Gino's", "$$", testStylist.GetId());
+      //   firstClient.Save();
+      //   Client secondClient = new Client("Taco Hut", "$", testStylist.GetId());
+      //   secondClient.Save();
+      //
+      //   List<Client> testClientList = new List<Client> {firstClient, secondClient};
+      //   List<Client> resultClientList = testStylist.GetClients();
+      //
+      //   //Assert
+      //   CollectionAssert.AreEqual(testClientList, resultClientList);
+      // }
+
   }
 }
