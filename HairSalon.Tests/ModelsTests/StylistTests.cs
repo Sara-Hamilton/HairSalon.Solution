@@ -25,7 +25,7 @@ namespace HairSalon.Models.Tests
        int result = Stylist.GetAll().Count;
 
        //Assert
-       Assert.AreEqual(1, result);
+       Assert.AreEqual(0, result);
      }
 
     [TestMethod]
