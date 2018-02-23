@@ -111,7 +111,7 @@ namespace HairSalon.Models
       cmd.Parameters.Add(hireDate);
 
       MySqlParameter phone = new MySqlParameter();
-      phone.ParameterName = "@Name";
+      phone.ParameterName = "@Phone";
       phone.Value = this._phone;
       cmd.Parameters.Add(phone);
 

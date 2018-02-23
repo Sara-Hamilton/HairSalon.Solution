@@ -15,7 +15,8 @@ namespace HairSalon.Models.Tests
 
     public void Dispose()
     {
-      //Delete everything from the database
+      Stylist.DeleteAll();
+      // Client.DelteAll();
     }
 
     [TestMethod]
@@ -84,7 +85,7 @@ namespace HairSalon.Models.Tests
 
        //Act
        List<Stylist> result = Stylist.GetAll();
-       List<Stylist> testList = new List<Stylist>{testStylist};
+       List<Stylist> testList = new List<Stylist>{testStylist, testStylist};
 
        //Assert
        CollectionAssert.AreEqual(testList, result);
