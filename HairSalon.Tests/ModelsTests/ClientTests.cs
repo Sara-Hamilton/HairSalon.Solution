@@ -19,6 +19,16 @@ namespace HairSalon.Models.Tests
     }
 
     [TestMethod]
+    public void GetAll_DatabaseEmptyAtFirst_0()
+    {
+      //Arrange, Act
+      int result = Client.GetAll().Count;
+
+      //Assert
+      Assert.AreEqual(1, result);
+    }
+
+    [TestMethod]
     public void Equals_ReturnsTrueIfDescriptionsAreTheSame_True()
     {
       // Arrange, Act
