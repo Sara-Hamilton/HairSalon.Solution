@@ -100,7 +100,7 @@ namespace HairSalon.Models
         string clientPhone = rdr.GetString(2);
         string clientNotes = rdr.GetString(3);
         int clientStylistId = rdr.GetInt32(4);
-        Client newClient = new Client(clientName, clientPhone, , clientNotes, clientStylistId, clientId);
+        Client newClient = new Client(clientName, clientPhone, clientNotes, clientStylistId, clientId);
         allClients.Add(newClient);
       }
       conn.Close();
@@ -109,6 +109,44 @@ namespace HairSalon.Models
           conn.Dispose();
       }
       return allClients;
+    }
+
+    public void Save()
+    {
+    MySqlConnection conn = DB.Connection();
+    conn.Open();
+
+     var cmd = conn.CreateCommand() as MySqlCommand;
+    cmd.CommandText = @"INSERT INTO `clients` (name, phone, notes,  stylist_id) VALUES (@ClientName, @ClientPhone, @ClientNotes, @ClientStylistId);";
+
+     MySqlParameter name = new MySqlParameter();
+     name.ParameterName = "@ClientName";
+     name.Value = this._name;
+     cmd.Parameters.Add(name);
+
+     MySqlParameter phone = new MySqlParameter();
+     phone.ParameterName = "@ClientPhone";
+     phone.Value = this._phone;
+     cmd.Parameters.Add(phone);
+
+     MySqlParameter notes = new MySqlParameter();
+     notes.ParameterName = "@ClientNotes";
+     notes.Value = this._notes;
+     cmd.Parameters.Add(notes);
+
+     MySqlParameter stylistId = new MySqlParameter();
+     stylistId.ParameterName = "@ClientStylistId";
+     stylistId.Value = this._stylistId;
+     cmd.Parameters.Add(stylistId);
+
+     cmd.ExecuteNonQuery();
+     _id = (int) cmd.LastInsertedId;
+
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
     }
 
   }
