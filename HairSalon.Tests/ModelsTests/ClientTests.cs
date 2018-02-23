@@ -160,5 +160,32 @@ namespace HairSalon.Models.Tests
       Assert.AreEqual(testClient, foundClient);
     }
 
+    // [TestMethod]
+    // public void Edit_UpdatesClientInDatabase_String()
+    // {
+    //   //Arrange
+    //   string name = "John Smith";
+    //   string name2 = "Jane Doe";
+    //   string phone = "503-555-5555";
+    //   string phone2 = "503-555-6789";
+    //   string notes = "use #2 guard";
+    //   string notes2 = "razor cut";
+    //   int stylistId = 1;
+    //   Client testClient = new Client(name, phone, notes, stylistId);
+    //   newClient.Save();
+    //
+    //
+    //
+    //   //Act
+    //   testClient.Edit(name2, phone2, notes2, 1);
+    //
+    //   string nameResult = Client.Find(testClient.GetId()).GetName();
+    //   string priceResult = Client.Find(testClient.GetId()).GetPrice();
+    //
+    //   //Assert
+    //   Assert.AreEqual(secondName , nameResult);
+    //   Assert.AreEqual(secondPrice , priceResult);
+    // }
+
   }
 }

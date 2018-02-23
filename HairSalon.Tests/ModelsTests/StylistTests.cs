@@ -173,5 +173,28 @@ namespace HairSalon.Models.Tests
       //   CollectionAssert.AreEqual(testClientList, resultClientList);
       // }
 
+      [TestMethod]
+      public void Edit_UpdatesStylistInDatabase_String()
+      {
+        //Arrange
+        string name = "John Smith";
+        string name2 = "Jane Doe";
+        DateTime hireDate = new DateTime (2015, 3, 1);
+        string phone = "503-555-5555";
+        string phone2 = "503-555-6789";
+        Stylist testStylist = new Stylist(name, hireDate, phone);
+        // testStylist.Save();
+
+        //Act
+        testStylist.Edit(name2, phone2);
+
+        string nameResult = Stylist.Find(testStylist.GetId()).GetName();
+        string phoneResult = Stylist.Find(testStylist.GetId()).GetPhone();
+
+        //Assert
+        Assert.AreEqual(name2 , nameResult);
+        Assert.AreEqual(phone2 , phoneResult);
+      }
+
   }
 }
