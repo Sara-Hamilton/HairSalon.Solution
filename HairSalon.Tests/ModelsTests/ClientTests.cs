@@ -202,7 +202,7 @@ namespace HairSalon.Models.Tests
       List<Client> allClients = Client.GetAll();
 
       //Assert
-      Assert.AreEqual(1, allClients.Count);
+      Assert.AreEqual(0, allClients.Count);
     }
 
   }
