@@ -15,11 +15,11 @@ _This is the Epicodus weekly project for week 3 of the C# course. Its purpose is
 
 ### Specifications
 * User can add a new stylist
-  * sample input: stylist name "Jane Smith"
+  * sample input: stylist name "John Smith"
   * sample output: new stylist with the name "John Smith" is created
 * User can add a new client to the list of clients and select and assign a stylist to the client
   * sample input: Create new client with name "Joe Blankenship" and stylist "John Smith"
-  * sample output: The client Joe Blenkenship is added to the list of clients for John Smith
+  * sample output: The client Joe Blankenship is added to the list of clients for John Smith
 * User can see a list of all stylists
   * sample input: click on the navbar link labeled "Stylists"
   * sample output: a list of all stylists is displayed
