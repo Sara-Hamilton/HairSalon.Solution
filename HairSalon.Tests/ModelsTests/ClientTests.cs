@@ -136,5 +136,20 @@ namespace HairSalon.Models.Tests
       CollectionAssert.AreEqual(newList, result);
     }
 
+    [TestMethod]
+    public void Find_FindsClientInDatabase_Client()
+    {
+      //Arrange
+      Client testClient = new Client("Kevin Jones", "503-555-5555", "use number 2 guard", 1);
+      testClient.Save();
+
+      //Act
+      Client foundClient = Client.Find(testClient.GetId());
+      testClient.SetName("wrong name");
+
+      //Assert
+      Assert.AreEqual(testClient, foundClient);
+    }
+
   }
 }
