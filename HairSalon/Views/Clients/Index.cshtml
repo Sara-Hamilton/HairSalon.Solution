@@ -1,3 +1,24 @@
 @{
   Layout = "_Layout";
 }
+
+@if (Model.Count == 0)
+{
+  <h3>No Clients yet</h3>
+}
+else
+{
+<div class="list-group">
+  @foreach(var Client in Model)
+  {
+    <a href="/Clients/@Client.GetId()/details" class="list-group-item"><h2>@Client.GetName()</h2>  Phone: @Client.GetPhone() Notes: @Client.GetNotes()</a>
+  <a href="/Clients/@Client.GetId()/update" class="list-group-item">Edit this Client</a>
+  <a href="/Clients/@Client.GetId()/delete" class="list-group-item">Delete this Client</a>
+  <br/>
+  }
+</div>
+
+<form action="/Clients/delete" method="post">
+  <button type="submit" name="button" class="btn btn-default">Clear All Restaurants</button>
+</form>
+}
