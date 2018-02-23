@@ -74,20 +74,21 @@ namespace HairSalon.Models.Tests
       Assert.AreEqual(phone2, phoneResult);
     }
 
-    // [TestMethod]
-    //  public void Save_SavesStylistToDatabase_StylistList()
-    //  {
-    //    //Arrange
-    //    Stylist testStylist = new Stylist("Kim Jackson");
-    //    testStylist.Save();
-    //
-    //    //Act
-    //    List<Stylist> result = Stylist.GetAll();
-    //    List<Stylist> testList = new List<Stylist>{testStylist};
-    //
-    //    //Assert
-    //    CollectionAssert.AreEqual(testList, result);
-    //  }
+    [TestMethod]
+     public void Save_SavesStylistToDatabase_StylistList()
+     {
+       //Arrange
+       DateTime hireDate = new DateTime (2015, 3, 1);
+       Stylist testStylist = new Stylist("Kim Jackson", hireDate, "503-555-5555");
+       testStylist.Save();
+
+       //Act
+       List<Stylist> result = Stylist.GetAll();
+       List<Stylist> testList = new List<Stylist>{testStylist};
+
+       //Assert
+       CollectionAssert.AreEqual(testList, result);
+     }
 
   }
 }

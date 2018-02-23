@@ -77,6 +77,21 @@ namespace HairSalon.Models
       _phone = newPhone;
     }
 
+    public static void DeleteAll()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM stylists, clients USING stylists LEFT JOIN clients on (stylists.id = clients.stylist_id);";
+
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
     public void Save()
     {
       MySqlConnection conn = DB.Connection();
