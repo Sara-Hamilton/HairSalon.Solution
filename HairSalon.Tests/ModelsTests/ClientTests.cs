@@ -91,7 +91,7 @@ namespace HairSalon.Models.Tests
       List<Client> testList = new List<Client>{testClient};
 
       //Assert
-      CollectionAssert.AreEqual(testList, result + 1);
+      CollectionAssert.AreEqual(testList, result);
     }
 
     [TestMethod]
