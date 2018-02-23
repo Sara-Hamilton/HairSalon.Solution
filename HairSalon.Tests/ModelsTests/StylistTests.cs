@@ -29,6 +29,18 @@ namespace HairSalon.Models.Tests
        Assert.AreEqual(0, result);
      }
 
+     [TestMethod]
+      public void Equals_ReturnsTrueForSameName_Stylist()
+      {
+        //Arrange, Act
+        DateTime hireDate = new DateTime (2015, 3, 1);
+        Stylist firstStylist = new Stylist("John Smith", hireDate, "503-555-5555");
+        Stylist secondStylist = new Stylist("John Smith", hireDate, "503-555-5556");
+
+        //Assert
+        Assert.AreEqual(firstStylist, secondStylist);
+      }
+
     [TestMethod]
     public void Getters_TestingAllGetters_Various()
     {
