@@ -104,7 +104,25 @@ namespace HairSalon.Models.Tests
      }
 
      [TestMethod]
-      public void DeleteAll_StylistEmptyAtFirst_0()
+     public void Save_DatabaseAssignsIdToStylist_Id()
+     {
+       //Arrange
+       DateTime hireDate = new DateTime (2015, 3, 1);
+       Stylist testStylist = new Stylist("Kim Jackson", hireDate, "503-555-5555");
+       testStylist.Save();
+
+       //Act
+       Stylist savedStylist = Stylist.GetAll()[0];
+
+       int result = savedStylist.GetId();
+       int testId = testStylist.GetId();
+
+       //Assert
+       Assert.AreEqual(testId + 1, result);
+    }
+
+     [TestMethod]
+      public void DeleteAll_DeletesStylistsFromDatabase_0()
       {
         //Arrange
         DateTime hireDate = new DateTime (2015, 3, 1);
