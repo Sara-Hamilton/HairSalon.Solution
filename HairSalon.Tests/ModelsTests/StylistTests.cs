@@ -152,26 +152,29 @@ namespace HairSalon.Models.Tests
         Assert.AreEqual(testStylist, foundStylist);
       }
 
-      // [TestMethod]
-      // public void GetClients_RetrievesAllItemsWithStylist_ClientList()
-      // {
-      //   //Arrange
-      //   DateTime hireDate = new DateTime (2015, 3, 1);
-      //   Stylist testStylist = new Stylist("Kim Jackson", hireDate, "503-555-5555");
-      //   testStylist.Save();
-      //
-      //   //Act
-      //   Client firstClient = new Client("Gino's", "$$", testStylist.GetId());
-      //   firstClient.Save();
-      //   Client secondClient = new Client("Taco Hut", "$", testStylist.GetId());
-      //   secondClient.Save();
-      //
-      //   List<Client> testClientList = new List<Client> {firstClient, secondClient};
-      //   List<Client> resultClientList = testStylist.GetClients();
-      //
-      //   //Assert
-      //   CollectionAssert.AreEqual(testClientList, resultClientList);
-      // }
+      [TestMethod]
+      public void GetClients_RetrievesAllItemsWithStylist_ClientList()
+      {
+        //Arrange
+        string name = "John Smith";
+        DateTime hireDate = new DateTime (2015, 3, 1);
+        string phone = "503-555-5555";
+        Stylist testStylist = new Stylist(name, hireDate, phone);
+        testStylist.Save();
+
+        //Act
+        Client firstClient = new Client("Kevin Jones", "503-555-5555", "use number 2 guard", testStylist.GetId());
+        firstClient.Save();
+        Client secondClient = new Client("Amy Smith", "503-555-8888", "use number 4 guard", testStylist.GetId());
+        secondClient.Save();
+        List<Client> testClientList = new List<Client> {firstClient, secondClient};
+        List<Client> resultClientList = testStylist.GetClients();
+        List<Client> testList = new List<Client>{};
+
+        //Assert
+        CollectionAssert.AreEqual(testClientList, testList);
+        CollectionAssert.AreEqual(testClientList, resultClientList);
+      }
 
       [TestMethod]
       public void Edit_UpdatesStylistInDatabase_String()
