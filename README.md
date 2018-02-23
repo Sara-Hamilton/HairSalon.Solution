@@ -47,8 +47,15 @@ _This is the Epicodus weekly project for week 3 of the C# course. Its purpose is
     See https://www.learnhowtoprogram.com/c/getting-started-with-c/installing-c for instructions and links.
 
   *    _Import the data into the database_
-    See https://www.learnhowtoprogram.com/c/database-basics-ee7c9fd3-fcd9-4fff-8b1d-5ff7bfcbf8f0/database-practice-and-world-data for instructions and links.
-    Download the zipfile that is located inside this github repository.
+
+  Either type the following commands into SQL on the command line or download the zipfile of the database that is included in this Github repository.  
+  ```
+  CREATE DATABASE hair_salon;
+  USE hair_salon;
+  CREATE TABLE stylists ( id serial PRIMARY KEY, name VARCHAR(255), hire_date DATE, phone VARCHAR(255));
+  CREATE TABLE clients ( id serial PRIMARY KEY, name VARCHAR(255), phone VARCHAR(255), notes VARCHAR(255), stylist_id INT, PRIMARY KEY (`id`));
+  ```
+    See https://www.learnhowtoprogram.com/c/database-basics-ee7c9fd3-fcd9-4fff-8b1d-5ff7bfcbf8f0/database-practice-and-world-data for instructions and links explaining how to download the zipfile that is located inside this github repository.
 
   * _Start the Apache and MySql Servers in MAMP_
 
