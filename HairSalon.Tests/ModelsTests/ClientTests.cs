@@ -190,5 +190,20 @@ namespace HairSalon.Models.Tests
       Assert.AreEqual(stylistId2 , stylistIdResult);
     }
 
+    [TestMethod]
+    public void Delete_RemovesClientFromDatabase_0()
+    {
+      //Arrange
+      Client testClient = new Client("Kevin Jones", "503-555-5555", "use number 2 guard", 1);
+      testClient.Save();
+
+      //Act
+      testClient.Delete();
+      List<Client> allClients = Client.GetAll();
+
+      //Assert
+      Assert.AreEqual(1, allClients.Count);
+    }
+
   }
 }
