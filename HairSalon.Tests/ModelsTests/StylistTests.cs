@@ -147,7 +147,6 @@ namespace HairSalon.Models.Tests
 
         //Act
         Stylist foundStylist = Stylist.Find(testStylist.GetId());
-        testStylist.SetName("wrong name");
 
         //Assert
         Assert.AreEqual(testStylist, foundStylist);
