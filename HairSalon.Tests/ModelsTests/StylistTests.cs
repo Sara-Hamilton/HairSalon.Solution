@@ -91,5 +91,21 @@ namespace HairSalon.Models.Tests
        CollectionAssert.AreEqual(testList, result);
      }
 
+     [TestMethod]
+      public void DeleteAll_StylistEmptyAtFirst_0()
+      {
+        //Arrange
+        DateTime hireDate = new DateTime (2015, 3, 1);
+        Stylist testStylist = new Stylist("Kim Jackson", hireDate, "503-555-5555");
+        testStylist.Save();
+
+        //Act
+        Stylist.DeleteAll();
+        int result = Stylist.GetAll().Count;
+
+        //Assert
+        Assert.AreEqual(1, result);
+      }
+
   }
 }
