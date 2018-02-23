@@ -74,7 +74,7 @@ namespace HairSalon.Models.Tests
       string notesResult = newClient.GetNotes();
 
       //Assert
-      Assert.AreEqual(name2 + "s", nameResult);
+      Assert.AreEqual(name2, nameResult);
       Assert.AreEqual(phone2, phoneResult);
       Assert.AreEqual(notes2, notesResult);
     }
