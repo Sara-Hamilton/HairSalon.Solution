@@ -16,7 +16,7 @@ namespace HairSalon.Models.Tests
     public void Dispose()
     {
       Stylist.DeleteAll();
-      Client.DelteAll();
+      Client.DeleteAll();
     }
 
     [TestMethod]

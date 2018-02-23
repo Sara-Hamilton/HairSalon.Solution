@@ -15,7 +15,7 @@ namespace HairSalon.Models.Tests
 
     public void Dispose()
     {
-      //Delete everything from the database
+      Client.DeleteAll();
     }
 
     [TestMethod]
@@ -91,7 +91,7 @@ namespace HairSalon.Models.Tests
       List<Client> testList = new List<Client>{testClient};
 
       //Assert
-      CollectionAssert.AreEqual(testList, result);
+      CollectionAssert.AreEqual(testList, result + 1);
     }
 
     [TestMethod]
