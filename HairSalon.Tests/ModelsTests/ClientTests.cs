@@ -188,7 +188,6 @@ namespace HairSalon.Models.Tests
       Assert.AreEqual(phone2 , phoneResult);
       Assert.AreEqual(notes2 , notesResult);
       Assert.AreEqual(stylistId2 , stylistIdResult);
-      Assert.AreEqual(3 , stylistIdResult);
     }
 
   }
