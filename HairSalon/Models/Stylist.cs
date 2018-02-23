@@ -122,7 +122,7 @@ namespace HairSalon.Models
        int stylistId = rdr.GetInt32(0);
        string stylistName = rdr.GetString(1);
        DateTime stylistHireDate = rdr.GetDateTime(2);
-       string stylistPhone = rdr.GetPhone(3);
+       string stylistPhone = rdr.GetString(3);
        Stylist newStylist = new Stylist(stylistName, stylistHireDate, stylistPhone, stylistId);
        allStylists.Add(newStylist);
      }
