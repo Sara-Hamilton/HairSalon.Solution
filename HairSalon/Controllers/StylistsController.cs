@@ -19,7 +19,7 @@ namespace HairSalon.Controllers
     {
       string newHireDate = Request.Form["new-hire-date"];
       DateTime parsedHireDate = Convert.ToDateTime(newHireDate);
-      Stylist newStylist = new Stylist (Request.Form["new-name"], parsedHireDate, RequestForm["phone"]);
+      Stylist newStylist = new Stylist (Request.Form["new-name"], parsedHireDate, Request.Form["new-phone"]);
       newStylist.Save();
       List<Stylist> allStylists = Stylist.GetAll();
       return View("Index", allStylists);
