@@ -23,7 +23,7 @@ namespace HairSalon.Models.Tests
     {
       // Arrange, Act
       Client firstClient = new Client("Kevin Jones", "503-555-5555", "use number 2 guard", 1);
-      Client secondClient = new Client("Kevin Jonesss", "503-555-5555", "use number 2 guard", 1);
+      Client secondClient = new Client("Kevin Jones", "503-555-5555", "use number 2 guard", 1);
 
       // Assert
       Assert.AreEqual(firstClient, secondClient);
