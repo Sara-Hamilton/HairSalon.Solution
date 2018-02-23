@@ -18,7 +18,6 @@ namespace HairSalon.Controllers.Tests
 
             //Assert
             Assert.IsInstanceOfType(result, typeof(ViewResult));
-            Assert.IsInstanceOfType(result, typeof(string));
         }
     }
 }
