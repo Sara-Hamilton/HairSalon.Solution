@@ -77,6 +77,38 @@ namespace HairSalon.Models
       _phone = newPhone;
     }
 
+    public void Save()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO stylists (name, hire_date, phone) VALUES (@Name, @HireDate, @Phone);";
+
+      MySqlParameter name = new MySqlParameter();
+      name.ParameterName = "@Name";
+      name.Value = this._name;
+      cmd.Parameters.Add(name);
+
+      MySqlParameter hireDate = new MySqlParameter();
+      hireDate.ParameterName = "@HireDate";
+      hireDate.Value = this._hireDate;
+      cmd.Parameters.Add(hireDate);
+
+      MySqlParameter phone = new MySqlParameter();
+      phone.ParameterName = "@Name";
+      phone.Value = this._phone;
+      cmd.Parameters.Add(phone);
+
+      cmd.ExecuteNonQuery();
+      _id = (int) cmd.LastInsertedId;
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+     }
+
 
   }
 }
