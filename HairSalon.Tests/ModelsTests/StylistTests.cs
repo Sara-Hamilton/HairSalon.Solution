@@ -8,7 +8,7 @@ namespace HairSalon.Models.Tests
   [TestClass]
   public class StylistTest : IDisposable
  {
-    public StylistTests()
+    public void StylistTests()
     {
       DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=hair_salon_test;";
     }
@@ -16,6 +16,26 @@ namespace HairSalon.Models.Tests
     public void Dispose()
     {
       //Delete everything from the database
+    }
+
+    [TestMethod]
+    public void Getters_TestingAllGetters_String()
+    {
+      //Arrange
+      string name = "John Smith";
+      DateTime hireDate = new DateTime (2015, 3, 1);
+      string phone = "503-555-5555";
+      Stylist newStylist = new Stylist(name, hireDate, phone);
+
+      //Act
+      string nameResult = newStylist.GetName();
+      DateTime hireDateResult = newStylist.GetHireDate();
+      string phoneResult = newStylist.GetPhone();
+
+      //Assert
+      Assert.AreEqual(name + "s", nameResult);
+      Assert.AreEqual(hireDate  + "s", hireDateResult);
+      Assert.AreEqual(phone  + "s", phoneResult);
     }
 
   }

@@ -33,7 +33,6 @@ namespace HairSalon.Models
         bool nameEquality = (this.GetName() == newStylist.GetName());
         bool hireDateEquality = (this.GetHireDate() == newStylist.GetHireDate());
         bool phoneEquality = (this.GetPhone() == newStylist.GetPhone());
-        bool idEquality = (this.GetId() == newStylist.GetId());
         return (idEquality && nameEquality && hireDateEquality && phoneEquality);
       }
     }

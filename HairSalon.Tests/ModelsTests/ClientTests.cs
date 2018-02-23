@@ -8,7 +8,7 @@ namespace HairSalon.Models.Tests
   [TestClass]
   public class ClientTest : IDisposable
  {
-    public ClientTests()
+    public void ClientTests()
     {
       DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=hair_salon_test;";
     }
