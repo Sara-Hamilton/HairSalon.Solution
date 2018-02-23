@@ -14,14 +14,16 @@ namespace HairSalon.Controllers
       return View(allStylists);
     }
 
-    [HttpPost("/stylists")]
-    public ActionResult Create()
-    {
-      Stylist newStylist = new Stylist (Request.Form["new-name"]);
-      newStylist.Save();
-      List<Stylist> allStylists = Stylist.GetAll();
-      return View("Index", allStylists);
-    }
+    // [HttpPost("/stylists")]
+    // public ActionResult Create()
+    // {
+    //   string newHireDate = Request.Form["new-hire-date"];
+    //   DateTime parsedHireDate = Convert.ToDateTime(newHireDate);
+    //   Stylist newStylist = new Stylist (Request.Form["new-name"], parsedHireDate, RequestForm["phone"]);
+    //   newStylist.Save();
+    //   List<Stylist> allStylists = Stylist.GetAll();
+    //   return View("Index", allStylists);
+    // }
 
     [HttpGet("/stylists/new")]
     public ActionResult CreateForm()
