@@ -207,7 +207,7 @@ namespace HairSalon.Models
      return foundClient;
     }
 
-    public void Edit (string newName, string newPhone, string newNotes, int new StylistId)
+    public void Edit (string newName, string newPhone, string newNotes, int newStylistId)
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();
