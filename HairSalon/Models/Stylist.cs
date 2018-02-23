@@ -149,6 +149,40 @@ namespace HairSalon.Models
      return allStylists;
     }
 
+    public static Stylist Find(int id)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM cuisines WHERE id = (@searchId);";
+
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@searchId";
+      searchId.Value = id;
+      cmd.Parameters.Add(searchId);
+
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      int stylistId = 0;
+      string stylistName = "";
+      DateTime stylistHireDate = DateTime.Now;
+      string stylistPhone = "";
+
+      while(rdr.Read())
+      {
+        stylistId = rdr.GetInt32(0);
+        stylistName = rdr.GetString(1);
+        stylistHireDate = rdr.GetDateTime(2);
+        stylistPhone = rdr.GetString(3);
+      }
+      Stylist newStylist = new Stylist(stylistName, stylistHireDate, stylistPhone, stylistId);
+      conn.Close();
+      if (conn != null)
+      {
+          conn.Dispose();
+      }
+      return newStylist;
+    }
+
 
 
   }
