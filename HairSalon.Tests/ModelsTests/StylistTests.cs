@@ -35,7 +35,7 @@ namespace HairSalon.Models.Tests
         //Arrange, Act
         DateTime hireDate = new DateTime (2015, 3, 1);
         Stylist firstStylist = new Stylist("John Smith", hireDate, "503-555-5555");
-        Stylist secondStylist = new Stylist("John Smith", hireDate, "503-555-5556");
+        Stylist secondStylist = new Stylist("John Smith", hireDate, "503-555-5555");
 
         //Assert
         Assert.AreEqual(firstStylist, secondStylist);
