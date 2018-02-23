@@ -211,7 +211,7 @@ namespace HairSalon.Models.Tests
         List<Stylist> allStylists = Stylist.GetAll();
 
         //Assert
-        Assert.AreEqual(1, allStylists.Count);
+        Assert.AreEqual(0, allStylists.Count);
       }
 
   }
