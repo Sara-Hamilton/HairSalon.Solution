@@ -59,9 +59,9 @@ namespace HairSalon.Models.Tests
       string phoneResult = newStylist.GetPhone();
 
       //Assert
-      Assert.AreEqual(name, nameResult);
-      Assert.AreEqual(hireDate, hireDateResult);
-      Assert.AreEqual(phone, phoneResult);
+      Assert.AreEqual(name2, nameResult);
+      Assert.AreEqual(hireDate2, hireDateResult);
+      Assert.AreEqual(phone2, phoneResult);
     }
 
   }
