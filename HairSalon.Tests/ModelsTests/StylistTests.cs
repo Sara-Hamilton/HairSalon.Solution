@@ -183,7 +183,7 @@ namespace HairSalon.Models.Tests
         string phone = "503-555-5555";
         string phone2 = "503-555-6789";
         Stylist testStylist = new Stylist(name, hireDate, phone);
-        // testStylist.Save();
+        testStylist.Save();
 
         //Act
         testStylist.Edit(name2, phone2);
