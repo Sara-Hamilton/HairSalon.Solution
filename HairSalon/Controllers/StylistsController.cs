@@ -70,5 +70,12 @@ namespace HairSalon.Controllers
       return View(allStylistClients);
     }
 
+    [HttpGet("/stylists/{id}/details")]
+    public ActionResult Details(int id)
+    {
+      Stylist thisStylist = Stylist.Find(id);
+      return View(thisStylist);
+    }
+
   }
 }

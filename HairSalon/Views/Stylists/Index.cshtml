@@ -10,10 +10,11 @@
 else
 {
 <h2>Stylists</h2>
+<p>Click on stylist name to see stylist details</p>
 <div class="list-group">
 @foreach(var stylist in Model)
 {
-  <h2 class="list-group-item">@stylist.GetName()</h2>
+  <a href="/stylists/@stylist.GetId()/details" class="list-group-item"><h2>@stylist.GetName()</h2></a>
   <a href="/stylists/@stylist.GetId()/view" class="list-group-item">View all clients of this stylist</a>
   <a href="/stylists/@stylist.GetId()/update" class="list-group-item">Edit this stylist</a>
   <a href="/stylists/@stylist.GetId()/delete" class="list-group-item">Delete this stylist</a>

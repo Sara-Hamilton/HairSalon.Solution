@@ -11,9 +11,9 @@ else
 <h3>All Clients of this stylist</h3>
 
 <div class="list-group">
-  @foreach(var Client in Model)
+  @foreach(var client in Model)
   {
-    <a href="/Clients/@Client.GetId()/details" class="list-group-item"><h2>@Client.GetName()</h2>  Phone: @Client.GetPhone() <p>Notes: @Client.GetNotes()</p></a>
+    <a href="/clients/@client.GetId()/details" class="list-group-item"><h2>@client.GetName()</h2>  Phone: @client.GetPhone() <p>Notes: @client.GetNotes()</p></a>
   <br/>
   }
 </div>
