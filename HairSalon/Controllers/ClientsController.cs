@@ -72,7 +72,6 @@ namespace HairSalon.Controllers
     {
       Client thisClient = Client.Find(id);
       Stylist thisStylist = Stylist.Find(thisClient.GetStylistId());
-      List<Review> allReviews = thisClient.GetReviews();
       Dictionary<string, object> clientDetails = new Dictionary <string, object>();
       clientDetails.Add("client", thisClient);
       clientDetails.Add("stylist", thisStylist);
