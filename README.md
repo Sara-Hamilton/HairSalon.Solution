@@ -23,8 +23,11 @@ _This is the Epicodus weekly project for week 3 of the C# course. Its purpose is
 * User can see a list of all stylists
   * sample input: click on the navbar link labeled "Stylists"
   * sample output: a list of all stylists is displayed
-* User can select a stylist, see their details, and see a list of clients who belong to that stylist
+* User can select a stylist, and see their details
   * sample input: click on the stylist's name in the list of stylists
+  * sample output: the stylist's details are displayed
+* User can select a stylist, and see a list of clients who belong to that stylist
+  * sample input: click on the area that says "View all clients of this stylist" under the stylist's name
   * sample output: a list of all clients for that stylist is displayed
 
 
