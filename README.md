@@ -49,7 +49,9 @@ _This is the Epicodus weekly project for week 3 of the C# course. Its purpose is
 
     See https://www.learnhowtoprogram.com/c/getting-started-with-c/installing-c for instructions and links.
 
-  *    _Import the data into the database_
+* _Start the Apache and MySql Servers in MAMP_
+
+*   _Setup the database_
 
   Either type the following commands into SQL on the command line or download the zipfile of the database that is included in this Github repository.  
   ```
@@ -60,15 +62,26 @@ _This is the Epicodus weekly project for week 3 of the C# course. Its purpose is
   ```
     See https://www.learnhowtoprogram.com/c/database-basics-ee7c9fd3-fcd9-4fff-8b1d-5ff7bfcbf8f0/database-practice-and-world-data for instructions and links explaining how to download the zipfile that is located inside this github repository.
 
-  * _Start the Apache and MySql Servers in MAMP_
-
   * _Run the program_
     1. In the command line, cd into the project folder.
+    ```
+    cd HairSalon.Solution
+    cd HairSalon
+    ```
     2. In the command line, type dotnet restore. Enter.  It make take a few minutes to complete this process.
+    ```
+    dotnet restore
+    ```
     3. In the command line, type dotnet build. Enter. Any errror messages will be displayed in red.  Errors will need to be corrected before the app can be run. After correcting errors and saving changes, type dotnet build again.  When message says Build succeeded in green, proceed to the next step.
+    ```
+    dotnet build
+    ```
     4. In the command line, type dotnet run. Enter.
+    ```
+    dotnet run
+    ```
 
-  * _View program on web browser at port localhost:5000/_
+  * _View program on web browser at port localhost:5000/stylists_
 
   * _Follow the prompts._
 
