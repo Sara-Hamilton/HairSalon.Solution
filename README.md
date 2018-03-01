@@ -92,36 +92,37 @@ _This is the Epicodus weekly project for week 3 of the C# course. Its purpose is
 
   *   _Setup the database_
 
-    Either type the following commands into SQL on the command line or download the zipfile of the database that is included in this Github repository.  
+    Either type the following commands into SQL on the command line or download the file of the database that is included in this Github repository.  
 
     ```
     CREATE DATABASE hair_salon_test;
     USE hair_salon_test;
     CREATE TABLE stylists ( id serial PRIMARY KEY, name VARCHAR(255), hire_date DATE, phone VARCHAR(255));
     CREATE TABLE clients ( id serial PRIMARY KEY, name VARCHAR(255), phone VARCHAR(255), notes VARCHAR(255), stylist_id INT);
-    ```
+    ```  
 
       See https://www.learnhowtoprogram.com/c/database-basics-ee7c9fd3-fcd9-4fff-8b1d-5ff7bfcbf8f0/database-practice-and-world-data for instructions and links explaining how to download the file that is located inside this github repository.
 
     * _Run the program_
-      1. In the command line, cd into the project folder.
+      1. In the command line, cd into the project folder.  
 
       ```
       cd HairSalon.Solution
-      cd HairSalon.Tests
-      ```
+      cd HairSalon.Tests  
+      ```  
 
-      2. In the command line, type dotnet restore. Enter.  It make take a few minutes to complete this process.
 
-      ```
-      dotnet restore
-      ```
-
-      3. In the command line, type dotnet test. Enter. The tests will run.  When the tests are finished, output stating how many tests were run, how many tests passed, and how many tests were skipped will be displayed.  If any tests fail, details about the failures will be described in the console.  
+      2. In the command line, type dotnet restore. Enter.  It make take a few minutes to complete this process.  
 
       ```
-      dotnet test
+      dotnet restore  
       ```
+
+      3. In the command line, type dotnet test. Enter. The tests will run.  When the tests are finished, output stating how many tests were run, how many tests passed, and how many tests were skipped will be displayed.  If any tests fail, details about the failures will be described in the console.   
+
+      ```  
+      dotnet test  
+      ```  
 
   ## Support and contact details
 
