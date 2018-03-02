@@ -98,9 +98,9 @@ namespace HairSalon.Models
      var rdr = cmd.ExecuteReader() as MySqlDataReader;
      while(rdr.Read())
      {
-       int specialtytId = rdr.GetInt32(0);
-       string specialtytName = rdr.GetString(1);
-       Specialty newSpecialty = new Specialty(specialtytName,  specialtyId);
+       int specialtyId = rdr.GetInt32(0);
+       string specialtyName = rdr.GetString(1);
+       Specialty newSpecialty = new Specialty(specialtyName,  specialtyId);
        allSpecialties.Add(newSpecialty);
      }
      conn.Close();
