@@ -33,11 +33,11 @@ namespace HairSalon.Models.Tests
     {
       // Arrange, Act
       Specialty firstSpecialty = new Specialty("buzz cuts");
-      Specialty secondSpecialty = new Specialty("layering");
+      firstSpecialty.Save();
+      List<Specialty> specialtyList = Specialty.GetAll();
 
       // Assert
-      // Assert.AreEqual(firstSpecialty, secondSpecialty);
-      Assert.AreEqual(firstSpecialty.GetName(), "buzzz cuts");
+      Assert.AreEqual(firstSpecialty, specialtyList[0]);
     }
 
   }
