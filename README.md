@@ -13,13 +13,26 @@ _This is the Epicodus weekly project for week 3 of the C# course. Its purpose is
 * Allows the user to see a list of all stylists
 * Allows the user to select a stylist, see their details, and see a list of clients who belong to that stylist
 
+* Allows the user to delete stylists (all and single)
+* Allows the user to delete clients (all and single)
+* Allows the user to view all clients, select one client and see the details for that particular client
+* Allows the user to edit the name and/or phone number of a stylist
+* Allows the user to edit all or some information for a client
+
+* Allows the user to add a specialty
+* Allows the user to view all specialties
+* Allows the user to add a specialty to a stylist
+* Allows the user to select a specialty and see all stylists with that specialty
+* Allows the user to view the stylist's specialties on the stylist's details page
+* Allows the user to add a stylist to a specialty
+
 ### Specifications
 * User can add a new stylist
   * sample input: stylist name "John Smith"
   * sample output: new stylist with the name "John Smith" is created
 * User can add a new client to the list of clients and select and assign a stylist to the client
-  * sample input: Create new client with name "Joe Blankenship" and stylist "John Smith"
-  * sample output: The client Joe Blankenship is added to the list of clients for John Smith
+  * sample input: create new client with name "Joe Blankenship" and stylist "John Smith"
+  * sample output: the client Joe Blankenship is added to the list of clients for John Smith
 * User can see a list of all stylists
   * sample input: click on the navbar link labeled "Stylists"
   * sample output: a list of all stylists is displayed
@@ -29,6 +42,19 @@ _This is the Epicodus weekly project for week 3 of the C# course. Its purpose is
 * User can select a stylist, and see a list of clients who belong to that stylist
   * sample input: click on the area that says "View all clients of this stylist" under the stylist's name
   * sample output: a list of all clients for that stylist is displayed
+
+* User can delete a single stylist
+  * sample input: click on the button labeled "Delete this Stylist" on the stylists page next to a stylist's name
+  * sample output: the stylist is deleted
+* User can delete all stylists
+  * sample input: click on the button labeled "Clear All Stylists" at the bottom of the stylist's page
+  * sample output: all stylists are deleted
+  * User can delete a single client
+    * sample input: click on the button labeled "Delete this Client" on the clients page next to a client's name
+    * sample output: the client is deleted
+  * User can delete all clients
+    * sample input: click on the button labeled "Clear All Clients" at the bottom of the client's page
+    * sample output: all clients are deleted
 
 
   ## Setup/Installation Requirements
@@ -59,6 +85,8 @@ _This is the Epicodus weekly project for week 3 of the C# course. Its purpose is
   USE hair_salon;
   CREATE TABLE stylists ( id serial PRIMARY KEY, name VARCHAR(255), hire_date DATE, phone VARCHAR(255));
   CREATE TABLE clients ( id serial PRIMARY KEY, name VARCHAR(255), phone VARCHAR(255), notes VARCHAR(255), stylist_id INT);
+  CREATE TABLE TABLE specialties ( id serial PRIMARY KEY , name VARCHAR(255));
+  CREATE TABLE stylists_specialties ( id serial PRIMARY KEY , stylist_id INT , specialty_id INT);
   ```
 
     See https://www.learnhowtoprogram.com/c/database-basics-ee7c9fd3-fcd9-4fff-8b1d-5ff7bfcbf8f0/database-practice-and-world-data for instructions and links explaining how to download the file that is located inside this github repository.
@@ -98,6 +126,8 @@ _This is the Epicodus weekly project for week 3 of the C# course. Its purpose is
    USE hair_salon_test;
    CREATE TABLE stylists ( id serial PRIMARY KEY, name VARCHAR(255), hire_date DATE, phone VARCHAR(255));
    CREATE TABLE clients ( id serial PRIMARY KEY, name VARCHAR(255), phone VARCHAR(255), notes VARCHAR(255), stylist_id INT);
+   CREATE TABLE TABLE specialties ( id serial PRIMARY KEY , name VARCHAR(255));
+   CREATE TABLE stylists_specialties ( id serial PRIMARY KEY , stylist_id INT , specialty_id INT);
    ```
 
    See https://www.learnhowtoprogram.com/c/database-basics-ee7c9fd3-fcd9-4fff-8b1d-5ff7bfcbf8f0/database-practice-and-world-data for instructions and links explaining how to download the file that is located inside this github repository.
