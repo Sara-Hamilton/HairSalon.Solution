@@ -197,7 +197,7 @@ namespace HairSalon.Models.Tests
       List<Specialty> allSpecialties = Specialty.GetAll();
 
       //Assert
-      Assert.AreEqual(1, allSpecialties.Count);
+      Assert.AreEqual(0, allSpecialties.Count);
     }
 
   }
