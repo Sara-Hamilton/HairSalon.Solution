@@ -164,7 +164,7 @@ namespace HairSalon.Models.Tests
 
       List<Stylist> result = testSpecialty.GetStylists();
       Assert.AreEqual(1, result.Count);
-      CollectionAssert.AreEqual(new List<Stylist>{testStylist, testStylist}, result);
+      CollectionAssert.AreEqual(new List<Stylist>{testStylist}, result);
     }
 
   }
