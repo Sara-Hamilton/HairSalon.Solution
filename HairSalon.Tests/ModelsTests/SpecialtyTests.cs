@@ -28,5 +28,17 @@ namespace HairSalon.Models.Tests
       Assert.AreEqual(0, result);
     }
 
+    [TestMethod]
+    public void Equals_ReturnsTrueIfNamesAreTheSame_True()
+    {
+      // Arrange, Act
+      Specialty firstSpecialty = new Specialty("buzz cuts");
+      Specialty secondSpecialty = new Specialty("layering");
+
+      // Assert
+      // Assert.AreEqual(firstSpecialty, secondSpecialty);
+      Assert.AreEqual(firstSpecialty.GetName(), "buzzz cuts");
+    }
+
   }
 }
