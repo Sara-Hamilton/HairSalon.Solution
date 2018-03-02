@@ -17,7 +17,7 @@ namespace HairSalon.Controllers
     [HttpPost("/specialties")]
     public ActionResult Create()
     {
-      Specialty newSpecialty = new Specialty (Request.Form["new-name"], parsedHireDate, Request.Form["new-phone"]);
+      Specialty newSpecialty = new Specialty (Request.Form["new-name"]);
       newSpecialty.Save();
       List<Specialty> allSpecialties = Specialty.GetAll();
       return View("Index", allSpecialties);
@@ -28,5 +28,37 @@ namespace HairSalon.Controllers
     {
       return View();
     }
+
+    [HttpPost("/specialties/delete")]
+    public ActionResult DeleteAll()
+    {
+      Specialty.DeleteAll();
+      return View();
+    }
+
+    [HttpGet("/specialties/{id}/update")]
+    public ActionResult UpdateForm(int id)
+    {
+      Specialty thisSpecialty = Specialty.Find(id);
+      return View(thisSpecialty);
+    }
+
+    [HttpPost("/specialties/{id}/update")]
+    public ActionResult Update(int id)
+    {
+      Specialty thisSpecialty = Specialty.Find(id);
+      thisSpecialty.Edit(Request.Form["new-name"], Request.Form["new-phone"]);
+      return RedirectToAction("Index");
+    }
+
+    [HttpGet("/specialties/{id}/delete")]
+    public ActionResult Delete(int id)
+    {
+      Specialty thisSpecialty = Specialty.Find(id);
+      thisSpecialty.Delete();
+      List<Specialty> allSpecialties = Specialty.GetAll();
+      return View("Index", allSpecialties);
+    }
+
   }
 }
