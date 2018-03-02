@@ -51,5 +51,65 @@ namespace HairSalon.Models
       _name = newName;
     }
 
+    public static void DeleteAll()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"TRUNCATE TABLE specialties; TRUNCATE TABLE stylists_specialties;";
+
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
+    public void Save()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO specialties (name) VALUES (@Name);";
+
+      MySqlParameter name = new MySqlParameter();
+      name.ParameterName = "@Name";
+      name.Value = this._name;
+      cmd.Parameters.Add(name);
+
+      cmd.ExecuteNonQuery();
+      _id = (int) cmd.LastInsertedId;
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+     }
+
+     public static List<Specialty> GetAll()
+    {
+     List<Specialty> allSpecialties = new List<Specialty> {};
+     MySqlConnection conn = DB.Connection();
+     conn.Open();
+     var cmd = conn.CreateCommand() as MySqlCommand;
+     cmd.CommandText = @"SELECT * FROM specialties;";
+     var rdr = cmd.ExecuteReader() as MySqlDataReader;
+     while(rdr.Read())
+     {
+       int specialtytId = rdr.GetInt32(0);
+       string specialtytName = rdr.GetString(1);
+       Specialty newSpecialty = new Specialty(specialtytName,  specialtyId);
+       allSpecialties.Add(newSpecialty);
+     }
+     conn.Close();
+     if (conn != null)
+     {
+         conn.Dispose();
+     }
+     return allSpecialties;
+    }
+
   }
 }

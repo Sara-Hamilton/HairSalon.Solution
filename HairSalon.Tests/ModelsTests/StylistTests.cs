@@ -6,9 +6,9 @@ using System.Collections.Generic;
 namespace HairSalon.Models.Tests
 {
   [TestClass]
-  public class StylistTest : IDisposable
+  public class StylistTests : IDisposable
  {
-    public void StylistTests()
+    public  StylistTests()
     {
       DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=hair_salon_test;";
     }
