@@ -11,14 +11,31 @@ else
 {
 <h2>Clients</h2>
 <p>Click on client name to see client details</p>
-<div class="list-group">
-  @foreach(var Client in Model)
-  {
-    <a href="/Clients/@Client.GetId()/details" class="list-group-item"><h2>@Client.GetName()</h2>  Phone: @Client.GetPhone() <p>Notes: @Client.GetNotes()</p></a>
-  <a href="/Clients/@Client.GetId()/update" class="list-group-item">Edit this Client</a>
-  <a href="/Clients/@Client.GetId()/delete" class="list-group-item">Delete this Client</a>
-  <br/>
-  }
+
+<div class="well">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Notes</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+    @foreach(var Client in Model)
+    {
+      <tr>
+        <td class="col-sm-3"><a href="/Clients/@Client.GetId()/details"><h3>@Client.GetName()</h3></a></td>
+        <td class="col-sm-2">@Client.GetPhone()</td>
+        <td class="col-sm-3">@Client.GetNotes()</td>
+        <td class="col-sm-2"><a href="/Clients/@Client.GetId()/update" class="btn btn-default" role="button">Edit this Client</a></td>
+        <td class="col-sm-2"><a href="/Clients/@Client.GetId()/delete" class="btn btn-default" role="button">Delete this Client</a></td>
+      </tr>
+    }
+    </tbody>
+  </table>
 </div>
 
 <form action="/Clients/delete" method="post">
