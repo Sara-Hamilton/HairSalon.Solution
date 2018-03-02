@@ -11,14 +11,29 @@ else
 {
 <h2>Stylists</h2>
 <p>Click on stylist name to see stylist details</p>
-<div class="list-group">
-@foreach(var stylist in Model)
-{
-  <a href="/stylists/@stylist.GetId()/details" class="list-group-item"><h2>@stylist.GetName()</h2></a>
-  <a href="/stylists/@stylist.GetId()/view" class="list-group-item">View all clients of this stylist</a>
-  <a href="/stylists/@stylist.GetId()/update" class="list-group-item">Edit this stylist</a>
-  <a href="/stylists/@stylist.GetId()/delete" class="list-group-item">Delete this stylist</a>
-  }
+
+<div class="well">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>View Clients</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+    @foreach(var stylist in Model)
+    {
+      <tr>
+        <td class="col-sm-3"><a href="/stylists/@stylist.GetId()/details"><h3>@stylist.GetName()</h3></a></td>
+        <td class="col-sm-3"><a href="/stylists/@stylist.GetId()/view">View all clients of this stylist</a></td>
+        <td class="col-sm-3"><a href="/stylists/@stylist.GetId()/update" class="btn btn-default" role="button">Edit this stylist</a></td>
+        <td class="col-sm-3"><a href="/stylists/@stylist.GetId()/delete" class="btn btn-default" role="button">Delete this stylist</a></td>
+      </tr>
+    }
+    </tbody>
+  </table>
 </div>
 
 <form action="/stylists/delete" method="post">
