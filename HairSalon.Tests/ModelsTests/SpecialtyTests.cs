@@ -91,16 +91,33 @@ namespace HairSalon.Models.Tests
     {
       //Arrange
       Specialty testSpecialty = new Specialty("buzz cuts");
-      testSpecialty.Save();
       Specialty testSpecialty2 = new Specialty("bleaching");
-      testSpecialty2.Save();
 
       //Act
+      testSpecialty.Save();
+      testSpecialty2.Save();
       List<Specialty> result = Specialty.GetAll();
       List<Specialty> testList = new List<Specialty>{testSpecialty, testSpecialty2};
 
       //Assert
       CollectionAssert.AreEqual(testList, result);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsSpecialties_SpecialtyList()
+    {
+      //Arrange
+      Specialty newSpecialty1 = new Specialty("buzz cuts");
+      Specialty newSpecialty2 = new Specialty("bleaching");
+      List<Specialty> newList = new List<Specialty> { newSpecialty1 };
+
+      //Act
+      newSpecialty1.Save();
+      newSpecialty2.Save();
+      List<Specialty> result = Specialty.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
     }
 
   }
