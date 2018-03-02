@@ -142,14 +142,13 @@ namespace HairSalon.Models.Tests
     {
       //Arrange
       Specialty testSpecialty = new Specialty("buzz cuts");
-      Specialty testSpecialty2 = new Specialty("buzzzzz cuts");
       testSpecialty.Save();
 
       //Act
       Specialty foundSpecialty = Specialty.Find(testSpecialty.GetId());
 
       //Assert
-      Assert.AreEqual(testSpecialty2, foundSpecialty);
+      Assert.AreEqual(testSpecialty, foundSpecialty);
     }
 
   }
