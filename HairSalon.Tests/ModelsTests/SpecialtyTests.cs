@@ -137,5 +137,20 @@ namespace HairSalon.Models.Tests
       Assert.AreEqual(0, result.Count);
     }
 
+    [TestMethod]
+    public void Find_FindsSpecialtyInDatabase_Specialty()
+    {
+      //Arrange
+      Specialty testSpecialty = new Specialty("buzz cuts");
+      Specialty testSpecialty2 = new Specialty("buzzzzz cuts");
+      testSpecialty.Save();
+
+      //Act
+      Specialty foundSpecialty = Specialty.Find(testSpecialty.GetId());
+
+      //Assert
+      Assert.AreEqual(testSpecialty2, foundSpecialty);
+    }
+
   }
 }

@@ -119,7 +119,7 @@ namespace HairSalon.Models
       MySqlCommand cmd = conn.CreateCommand();
       cmd.CommandText = @"SELECT * FROM specialties WHERE id = @thisId;";
 
-      cmd.Parameters.Add(new MySqlParameter("@thisId", id));
+      cmd.Parameters.AddWithValue("@thisId", id);
 
       MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -129,7 +129,7 @@ namespace HairSalon.Models
       while (rdr.Read())
       {
         specialtyId = rdr.GetInt32(0);
-        specialtyFirstName = rdr.GetString(1);
+        specialtyName = rdr.GetString(1);
       }
 
       Specialty foundSpecialty = new Specialty(specialtyName, specialtyId);
