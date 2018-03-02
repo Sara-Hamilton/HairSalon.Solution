@@ -25,8 +25,8 @@ namespace HairSalon.Models.Tests
       int result = Specialty.GetAll().Count;
 
       //Assert
-      Assert.AreEqual(1, result);
+      Assert.AreEqual(0, result);
     }
-    
+
   }
 }
