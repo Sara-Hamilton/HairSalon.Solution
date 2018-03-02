@@ -150,8 +150,8 @@ namespace HairSalon.Models
 
       MySqlCommand cmd = conn.CreateCommand();
       cmd.CommandText = @"INSERT INTO stylists_specialties (stylist_id, specialty_id) VALUES (@StylistId, @SpecialtyId)";
-      cmd.Parameters.Add(new MySqlParameter("@StylistId", stylist.GetId()));
-      cmd.Parameters.Add(new MySqlParameter("@SpecialtyId", _id));
+      cmd.Parameters.AddWithValue("@StylistId", stylist.GetId()));
+      cmd.Parameters.AddWithValue("@SpecialtyId", _id));
       cmd.ExecuteNonQuery();
 
       conn.Close();
@@ -191,6 +191,23 @@ namespace HairSalon.Models
         conn.Dispose();
 
       return allStylists;
+    }
+
+    public void Delete()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM specialties WHERE id = @specialty_id; DELETE FROM stylists WHERE specialty_id = @specialty_id;";
+
+      cmd.Parameters.AddWithValue("@specialtyId", _id));
+
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
     }
 
   }
