@@ -109,7 +109,7 @@ namespace HairSalon.Models.Tests
       //Arrange
       Specialty newSpecialty1 = new Specialty("buzz cuts");
       Specialty newSpecialty2 = new Specialty("bleaching");
-      List<Specialty> newList = new List<Specialty> { newSpecialty1 };
+      List<Specialty> newList = new List<Specialty> { newSpecialty1, newSpecialty2};
 
       //Act
       newSpecialty1.Save();
