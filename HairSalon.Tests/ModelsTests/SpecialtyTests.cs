@@ -214,7 +214,7 @@ namespace HairSalon.Models.Tests
       string nameResult = Specialty.Find(testSpecialty.GetId()).GetName();
 
       //Assert
-      Assert.AreEqual(name , nameResult);
+      Assert.AreEqual(name2 , nameResult);
     }
 
   }
