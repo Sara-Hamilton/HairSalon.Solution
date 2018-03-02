@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+</hr>
+<h2>Edit Specialty: @Model["specialty"].GetName()</h2>
+<form class="form-inline" action="/specialtys/@Model["specialty"].GetId()/update" method="post">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" name="new-name" value="@Model["specialty"].GetName()">
+    </div>
+
+    @* <div class="form-group">
+    <label for="newStylistId">Stylist:</label>
+      <select class="form-control" name="new-stylist">
+        @foreach(var stylist in @Model["stylists"])
+        {
+          <option value=@stylist.GetId()>@stylist.GetName()</option>
+        }
+      </select>
+    </div> *@
+
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
