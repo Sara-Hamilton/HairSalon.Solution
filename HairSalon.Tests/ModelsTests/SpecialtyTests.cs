@@ -83,7 +83,7 @@ namespace HairSalon.Models.Tests
       string nameResult = newSpecialty.GetName();
 
       //Assert
-      Assert.AreEqual(name, nameResult);
+      Assert.AreEqual(name2, nameResult);
     }
 
   }
