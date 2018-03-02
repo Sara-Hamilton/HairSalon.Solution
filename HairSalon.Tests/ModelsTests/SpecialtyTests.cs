@@ -40,5 +40,34 @@ namespace HairSalon.Models.Tests
       Assert.AreEqual(firstSpecialty, specialtyList[0]);
     }
 
+    [TestMethod]
+    public void GetName_ReturnsName_String()
+    {
+      //Arrange
+      string name = "buzz cuts";
+      Specialty newSpecialty = new Specialty(name);
+      newSpecialty.Save();
+
+      //Act
+      string nameResult = newSpecialty.GetName();
+
+      //Assert
+      Assert.AreEqual(name + "s", nameResult);
+    }
+
+    [TestMethod]
+    public void GetId_ReturnsId_String()
+    {
+      //Arrange
+      Specialty newSpecialty = new Specialty("buzz cuts");
+      newSpecialty.Save();
+
+      //Act
+      int idResult = newSpecialty.GetId();
+
+      //Assert
+      Assert.AreEqual(11, idResult);
+    }
+
   }
 }
