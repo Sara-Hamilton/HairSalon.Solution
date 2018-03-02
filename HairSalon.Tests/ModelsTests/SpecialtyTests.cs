@@ -86,5 +86,23 @@ namespace HairSalon.Models.Tests
       Assert.AreEqual(name2, nameResult);
     }
 
+    [TestMethod]
+    public void Save_SavesToDatabase_SpecialtyList()
+    {
+      //Arrange
+      Specialty testSpecialty = new Specialty("buzz cuts");
+      testSpecialty.Save();
+      Specialty testSpecialty2 = new Specialty("bleaching");
+      testSpecialty2.Save();
+
+      //Act
+      testSpecialty.Save();
+      List<Specialty> result = Specialty.GetAll();
+      List<Specialty> testList = new List<Specialty>{testSpecialty};
+
+      //Assert
+      Assert.AreEqual(testList[0], result[1]);
+    }
+
   }
 }
