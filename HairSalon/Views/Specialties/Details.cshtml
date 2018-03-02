@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+<h2>Stylists with Specialty: @Model["specialty"].GetName()</h2>
+<hr />
+
+  <div class="well">
+    <ul>
+      @foreach (var stylist in @Model["specialtyStylists"])
+      {
+        <li>@stylist.GetName()</li>
+      }
+    </ul>
+  </div>

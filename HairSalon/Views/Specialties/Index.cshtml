@@ -18,7 +18,7 @@ else
       <tr>
         <th>Name</th>
         <th></th>
-        <th></th>
+        <th>Add Stylist</th>
         <th>Edit</th>
         <th>Delete</th>
       </tr>
@@ -27,11 +27,11 @@ else
     @foreach(var Specialty in Model)
     {
       <tr>
-        <td class="col-sm-3"><a href="/Specialties/@Specialty.GetId()/details"><h3>@Specialty.GetName()</h3></a></td>
+        <td class="col-sm-3"><a href="/specialties/@Specialty.GetId()/details"><h3>@Specialty.GetName()</h3></a></td>
         <td class="col-sm-2"></td>
-        <td class="col-sm-3"></td>
-        <td class="col-sm-2"><a href="/Specialties/@Specialty.GetId()/update" class="btn btn-default" role="button">Edit this Specialty</a></td>
-        <td class="col-sm-2"><a href="/Specialties/@Specialty.GetId()/delete" class="btn btn-default" role="button">Delete this Specialty</a></td>
+        <td class="col-sm-3"><a href="/specialties/@Specialty.GetId()/stylists/new" class="btn btn-default" role="button">Add stylist to specialty</a></td>
+        <td class="col-sm-2"><a href="/specialties/@Specialty.GetId()/update" class="btn btn-default" role="button">Edit this Specialty</a></td>
+        <td class="col-sm-2"><a href="/specialties/@Specialty.GetId()/delete" class="btn btn-default" role="button">Delete this Specialty</a></td>
       </tr>
     }
     </tbody>

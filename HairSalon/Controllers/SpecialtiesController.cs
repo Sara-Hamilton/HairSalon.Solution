@@ -61,13 +61,41 @@ namespace HairSalon.Controllers
     }
 
     //ADD STYLIST TO SPECIALTY
+    [HttpGet("/specialties/{specialtyId}/stylists/new")]
+    public ActionResult AddStylistForm(int specialtyId)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Specialty selectedSpecialty = Specialty.Find(specialtyId);
+      List<Stylist> specialtyStylists = selectedSpecialty.GetStylists();
+      List<Stylist> allStylists = Stylist.GetAll();
+      model.Add("specialty", selectedSpecialty);
+      model.Add("specialtyStylists", specialtyStylists);
+      model.Add("allStylists", allStylists);
+      return View(model);
+    }
+
     [HttpPost("/specialties/{specialtyId}/stylists/new")]
     public ActionResult AddStylist(int specialtyId)
     {
-        Specialty specialty = Specialty.Find(specialtyId);
-        Stylist stylist = Stylist.Find(Int32.Parse(Request.Form["stylist-id"]));
-        specialty.AddStylist(stylist);
-        return RedirectToAction("Details",  new { id = specialtyId });
+      Specialty specialty = Specialty.Find(specialtyId);
+      Stylist stylist = Stylist.Find(Int32.Parse(Request.Form["stylist-id"]));
+      specialty.AddStylist(stylist);
+      // return RedirectToAction("Details",  new { id = specialtyId });
+      // return View("Index",  new { id = specialtyId });
+      return RedirectToAction("Index");
+    }
+
+    [HttpGet("/specialties/{id}/details")]
+    public ActionResult Details(int id)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Specialty selectedSpecialty = Specialty.Find(id);
+      List<Stylist> specialtyStylists = selectedSpecialty.GetStylists();
+      List<Stylist> allStylists = Stylist.GetAll();
+      model.Add("specialty", selectedSpecialty);
+      model.Add("specialtyStylists", specialtyStylists);
+      model.Add("allStylists", allStylists);
+      return View(model);
     }
 
   }
