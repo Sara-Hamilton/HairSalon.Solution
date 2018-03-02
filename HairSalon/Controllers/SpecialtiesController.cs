@@ -61,26 +61,13 @@ namespace HairSalon.Controllers
     }
 
     //ADD STYLIST TO SPECIALTY
-    [HttpGet("/specialties/{specialtyId}/stylists/new")]
-    public ActionResult AddStylistForm(int specialtyId)
-    {
-      Dictionary<string, object> model = new Dictionary<string, object>();
-      Specialty selectedSpecialty = Specialty.Find(specialtyId);
-      List<Stylist> specialtyStylists = selectedSpecialty.GetStylists();
-      List<Stylist> allStylists = Stylist.GetAll();
-      model.Add("specialty", selectedSpecialty);
-      model.Add("specialtyStylists", specialtyStylists);
-      model.Add("allStylists", allStylists);
-      return View(model);
-    }
-
     [HttpPost("/specialties/{specialtyId}/stylists/new")]
     public ActionResult AddStylist(int specialtyId)
     {
       Specialty specialty = Specialty.Find(specialtyId);
       Stylist stylist = Stylist.Find(Int32.Parse(Request.Form["stylist-id"]));
       specialty.AddStylist(stylist);
-      return RedirectToAction("Index");
+      return RedirectToAction("Details",  new { id = specialtyId });
     }
 
     [HttpGet("/specialties/{id}/details")]
