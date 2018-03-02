@@ -17,6 +17,7 @@ namespace HairSalon.Models.Tests
     {
       Stylist.DeleteAll();
       Client.DeleteAll();
+      Specialty.DeleteAll();
     }
 
     [TestMethod]

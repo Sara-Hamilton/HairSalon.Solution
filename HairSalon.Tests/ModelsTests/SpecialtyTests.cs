@@ -16,6 +16,7 @@ namespace HairSalon.Models.Tests
     public void Dispose()
     {
       Specialty.DeleteAll();
+      Stylist.DeleteAll();
     }
 
     [TestMethod]
@@ -149,6 +150,21 @@ namespace HairSalon.Models.Tests
 
       //Assert
       Assert.AreEqual(testSpecialty, foundSpecialty);
+    }
+
+    [TestMethod]
+    public void AddStylist_AddStylistToSpecialty_Void()
+    {
+      Specialty testSpecialty = new Specialty("buzz cuts");
+      DateTime hireDate = new DateTime (2015, 3, 1);
+      Stylist testStylist = new Stylist("Kim Jackson", hireDate, "503-555-5555");
+      testSpecialty.Save();
+      testStylist.Save();
+      testSpecialty.AddStylist(testStylist);
+
+      List<Stylist> result = testSpecialty.GetStylists();
+      Assert.AreEqual(1, result.Count);
+      CollectionAssert.AreEqual(new List<Stylist>{testStylist, testStylist}, result);
     }
 
   }

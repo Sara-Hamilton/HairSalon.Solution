@@ -159,9 +159,9 @@ namespace HairSalon.Models
         conn.Dispose();
     }
 
-    public List<Sytlist> GetSytlists()
+    public List<Stylist> GetStylists()
     {
-      List<Sytlist> allSytlists = new List<Sytlist>();
+      List<Stylist> allStylists = new List<Stylist>();
 
       MySqlConnection conn = DB.Connection();
       conn.Open();
@@ -182,8 +182,8 @@ namespace HairSalon.Models
         DateTime stylistHireDate = rdr.GetDateTime(2);
         string stylistPhone = rdr.GetString(3);
 
-        Sytlist newSytlist = new Sytlist(stylistName, stylistHireDate, stylistPhone, stylistId);
-        allSytlists.Add(newSytlist);
+        Stylist newStylist = new Stylist(stylistName, stylistHireDate, stylistPhone, stylistId);
+        allStylists.Add(newStylist);
       }
 
       conn.Close();
