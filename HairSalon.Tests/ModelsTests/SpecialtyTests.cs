@@ -52,7 +52,7 @@ namespace HairSalon.Models.Tests
       string nameResult = newSpecialty.GetName();
 
       //Assert
-      Assert.AreEqual(name + "s", nameResult);
+      Assert.AreEqual(name, nameResult);
     }
 
     [TestMethod]
@@ -66,7 +66,7 @@ namespace HairSalon.Models.Tests
       int idResult = newSpecialty.GetId();
 
       //Assert
-      Assert.AreEqual(11, idResult);
+      Assert.AreEqual(1, idResult);
     }
 
   }
