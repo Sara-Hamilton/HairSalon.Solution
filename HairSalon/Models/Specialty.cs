@@ -143,5 +143,55 @@ namespace HairSalon.Models
       return foundSpecialty;
     }
 
+    public void AddStylist(Stylist stylist)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+
+      MySqlCommand cmd = conn.CreateCommand();
+      cmd.CommandText = @"INSERT INTO stylists_specialties (stylist_id, specialty_id) VALUES (@StylistId, @SpecialtyId)";
+      cmd.Parameters.Add(new MySqlParameter("@StylistId", stylist.GetId()));
+      cmd.Parameters.Add(new MySqlParameter("@SpecialtyId", _id));
+      cmd.ExecuteNonQuery();
+
+      conn.Close();
+      if (conn != null)
+        conn.Dispose();
+    }
+
+    public List<Sytlist> GetSytlists()
+    {
+      List<Sytlist> allSytlists = new List<Sytlist>();
+
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+
+      MySqlCommand cmd = conn.CreateCommand();
+      cmd.CommandText = @"
+        SELECT stylists.* FROM specialties
+        JOIN stylists_specialties ON (specialties.id = stylists_specialties.specialty_id)
+        JOIN stylists ON (stylists_specialties.stylist_id = stylists.id)
+        WHERE specialties.id = @ThisId;";
+      cmd.Parameters.Add(new MySqlParameter("@ThisId", _id));
+      MySqlDataReader rdr = cmd.ExecuteReader();
+      while(rdr.Read())
+      {
+
+        int stylistId = rdr.GetInt32(0);
+        string stylistName= rdr.GetString(1);
+        DateTime stylistHireDate = rdr.GetDateTime(2);
+        string stylistPhone = rdr.GetString(3);
+
+        Sytlist newSytlist = new Sytlist(stylistName, stylistHireDate, stylistPhone, stylistId);
+        allSytlists.Add(newSytlist);
+      }
+
+      conn.Close();
+      if (conn != null)
+        conn.Dispose();
+
+      return allStylists;
+    }
+
   }
 }
