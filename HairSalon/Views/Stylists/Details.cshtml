@@ -3,7 +3,18 @@
 }
 
 <div class="well">
-  <h2> Stylist: @Model.GetName()</h2>
-  <h4> Phone: @Model.GetPhone()</h4>
-  <h4> Date of Hire: @Model.GetHireDate().ToShortDateString()</h4>
+  <h2> Stylist: @Model["stylist"].GetName()</h2>
+  @if (@Model["specialties"].Count == 0)
+  {
+    <h4>no specialties yet</h4>
+  }
+  else
+  {
+    @foreach (var specialty in @Model["specialties"])
+    {
+      <h4>Specialty: @specialty.GetName()</h4>
+    }
+  }
+  <h4> Phone: @Model["stylist"].GetPhone()</h4>
+  <h4> Date of Hire: @Model["stylist"].GetHireDate().ToShortDateString()</h4>
 </div>
