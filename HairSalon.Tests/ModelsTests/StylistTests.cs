@@ -215,5 +215,20 @@ namespace HairSalon.Models.Tests
         Assert.AreEqual(0, allStylists.Count);
       }
 
+      [TestMethod]
+      public void AddSpecialty_AddSpecialtyToStylist_Void()
+      {
+        Stylist testStylist = new Stylist("Kim Jackson", DateTime.Today, "503-555-5555");
+        Specialty testSpecialty = new Specialty("buzz cuts");
+        testStylist.Save();
+        testSpecialty.Save();
+        testStylist.AddSpecialty(testSpecialty);
+
+        List<Specialty> result = testStylist.GetSpecialties();
+
+        Assert.AreEqual(2, result.Count);
+        CollectionAssert.AreEqual(new List<Specialty>{testSpecialty}, result);
+      }
+
   }
 }

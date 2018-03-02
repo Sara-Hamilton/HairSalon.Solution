@@ -268,14 +268,14 @@ namespace HairSalon.Models
       }
     }
 
-    public void AddSpeciality(Speciality speciality)
+    public void AddSpecialty(Specialty specialty)
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();
 
       MySqlCommand cmd = conn.CreateCommand();
-      cmd.CommandText = @"INSERT INTO stylists_specialties (speciality_id, stylist_id) VALUES (@SpecialityId, @StylistId)";
-      cmd.Parameters.Add(new MySqlParameter("@SpecialityId", speciality.GetId()));
+      cmd.CommandText = @"INSERT INTO stylists_specialties (specialty_id, stylist_id) VALUES (@SpecialtyId, @StylistId)";
+      cmd.Parameters.Add(new MySqlParameter("@SpecialtyId", specialty.GetId()));
       cmd.Parameters.Add(new MySqlParameter("@StylistId", _id));
       cmd.ExecuteNonQuery();
 
@@ -292,18 +292,19 @@ namespace HairSalon.Models
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand();
       cmd.CommandText = @"
-        SELECT specialities.* FROM stylists
-        JOIN stylists_specialities ON (stylists.id = stylists_specialities.stylist_id)
-        JOIN specialties ON (stylists_specialities.speciality_id = specialties.id)
+        SELECT specialties.* FROM stylists
+        JOIN stylists_specialties ON (stylists.id = stylists_specialties.stylist_id)
+        JOIN specialties ON (stylists_specialties.specialty_id = specialties.id)
         WHERE stylists.id = @ThisId;";
-      cmd.Parameters.Add(new MySqlParameter("@ThisId", _id));
+      cmd.Parameters.AddWithValue("@ThisId", _id);
       MySqlDataReader rdr = cmd.ExecuteReader();
       while(rdr.Read())
       {
-        int specialityId = rdr.GetInt32(0);
-        string specialityName= rdr.GetString(1);
+        int specialtyId = rdr.GetInt32(0);
+        string specialtyName= rdr.GetString(1);
 
-        Specialty newSpecialty = new Specialty(specialitytName);
+        Specialty newSpecialty = new Specialty(specialtyName, specialtyId);
+        allSpecialties.Add(newSpecialty);
       }
       conn.Close();
       if (conn != null)
