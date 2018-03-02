@@ -216,18 +216,17 @@ namespace HairSalon.Models
       conn.Open();
 
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"UPDATE `specialities` SET name = @name  WHERE id = @searchId;";
+      cmd.CommandText = @"UPDATE `specialties` SET name = @name  WHERE id = @searchId;";
       cmd.Parameters.AddWithValue("@searchId", _id);
       cmd.Parameters.AddWithValue("@name", newName);
 
       cmd.ExecuteNonQuery();
-      _name = newNitle;
+      _name = newName;
 
       conn.Close();
       if(conn != null)
       {
         conn.Dispose();
-
       }
     }
 
