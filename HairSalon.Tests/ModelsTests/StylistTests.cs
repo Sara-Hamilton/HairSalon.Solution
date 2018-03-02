@@ -154,7 +154,7 @@ namespace HairSalon.Models.Tests
       }
 
       [TestMethod]
-      public void GetClients_RetrievesAllItemsWithStylist_ClientList()
+      public void GetClients_RetrievesAllClientsWithStylist_ClientList()
       {
         //Arrange
         string name = "John Smith";
