@@ -1,24 +1,22 @@
 # Hair Salon
 
-#### .NET MVC app that allows the user to compile a list of stylists and a list of clients who belong to each stylist, 2-23-18
+#### .NET MVC app that allows the user to compile a list of stylists and a list of clients who belong to each stylist, 2-23-18 and 3-2-18
 
 #### _By Sara Hamilton_
 
 ## Description
-_This is the Epicodus weekly project for week 3 of the C# course. Its purpose is to demonstrate understanding of SQL and databases._
+_This is the Epicodus weekly project for weeks 3 and 4 of the C# course. Its purpose is to demonstrate understanding of SQL and databases._
 
 #### _Hair Salon_
 * Allows the user to add a new stylist
 * Allows the user to add a new client and assign the client to an existing stylist
 * Allows the user to see a list of all stylists
 * Allows the user to select a stylist, see their details, and see a list of clients who belong to that stylist
-
 * Allows the user to delete stylists (all and single)
 * Allows the user to delete clients (all and single)
 * Allows the user to view all clients, select one client and see the details for that particular client
 * Allows the user to edit the name and/or phone number of a stylist
 * Allows the user to edit all or some information for a client
-
 * Allows the user to add a specialty
 * Allows the user to view all specialties
 * Allows the user to add a specialty to a stylist
@@ -42,20 +40,48 @@ _This is the Epicodus weekly project for week 3 of the C# course. Its purpose is
 * User can select a stylist, and see a list of clients who belong to that stylist
   * sample input: click on the area that says "View all clients of this stylist" under the stylist's name
   * sample output: a list of all clients for that stylist is displayed
-
 * User can delete a single stylist
   * sample input: click on the button labeled "Delete this Stylist" on the stylists page next to a stylist's name
   * sample output: the stylist is deleted
 * User can delete all stylists
   * sample input: click on the button labeled "Clear All Stylists" at the bottom of the stylist's page
   * sample output: all stylists are deleted
-  * User can delete a single client
-    * sample input: click on the button labeled "Delete this Client" on the clients page next to a client's name
-    * sample output: the client is deleted
-  * User can delete all clients
-    * sample input: click on the button labeled "Clear All Clients" at the bottom of the client's page
-    * sample output: all clients are deleted
-
+* User can delete a single client
+  * sample input: click on the button labeled "Delete this Client" on the clients page next to a client's name
+  * sample output: the client is deleted
+* User can delete all clients
+  * sample input: click on the button labeled "Clear All Clients" at the bottom of the client's page
+  * sample output: all clients are deleted
+* User can view all clients
+  * sample input: click on the navbar link labeled "Clients"
+  * sample output: all clients are displayed
+* User can select one client and see the details for that particular client
+  * sample input: click on a client's name on the client's page
+  * sample output: details for the client are displayed
+* User can edit the name and/or phone number of a stylist
+  * sample input: click on the button labeled "Edit this Stylist" on the stylist details page
+  * sample output: a form is displayed allowing the user to edit the name and/or phone number of the stylist
+* User can edit all or some information for a client
+  * sample input: click on the button labeled "Edit this Client" on the client details page
+  * sample output: a form is displayed allowing the user to edit any or all of the information for the client
+* User can add a specialty
+  * sample input: specialty name "curly hair"
+  * sample output: a specialty with the name "curly hair" is created
+* User can view all specialties
+  * sample input: click on the specialties page
+  * sample output: all specialties are displayed
+* User can add a specialty to a stylist
+  * sample input: on the details page for a particular stylist, select a specialty from the dropdown menu and click the add button
+  * sample output: the specialty is added to the stylist
+* User can select a specialty and see all stylists with that specialty
+  * sample input: click on a specialty name on the specialties page
+  * sample output: all stylists with that specialty are displayed
+* User can view the stylist's specialties on the stylist's details page
+  * sample input: click on a stylist's name on the stylists page
+  * sample output: the details for that stylist are displayed
+* User can add a stylist to a specialty
+  * sample input: on the details page for a particular specialty, select a stylist from the dropdown menu and click the add button
+  * sample output: the specialty is added to the stylist
 
   ## Setup/Installation Requirements
 
@@ -85,7 +111,7 @@ _This is the Epicodus weekly project for week 3 of the C# course. Its purpose is
   USE hair_salon;
   CREATE TABLE stylists ( id serial PRIMARY KEY, name VARCHAR(255), hire_date DATE, phone VARCHAR(255));
   CREATE TABLE clients ( id serial PRIMARY KEY, name VARCHAR(255), phone VARCHAR(255), notes VARCHAR(255), stylist_id INT);
-  CREATE TABLE TABLE specialties ( id serial PRIMARY KEY , name VARCHAR(255));
+  CREATE TABLE specialties ( id serial PRIMARY KEY , name VARCHAR(255));
   CREATE TABLE stylists_specialties ( id serial PRIMARY KEY , stylist_id INT , specialty_id INT);
   ```
 
@@ -110,7 +136,7 @@ _This is the Epicodus weekly project for week 3 of the C# course. Its purpose is
     dotnet run
     ```
 
-  * _View program on web browser at port localhost:5000/stylists_
+  * _View program on web browser at port localhost:5000/_
 
   * _Follow the prompts._
 
@@ -126,7 +152,7 @@ _This is the Epicodus weekly project for week 3 of the C# course. Its purpose is
    USE hair_salon_test;
    CREATE TABLE stylists ( id serial PRIMARY KEY, name VARCHAR(255), hire_date DATE, phone VARCHAR(255));
    CREATE TABLE clients ( id serial PRIMARY KEY, name VARCHAR(255), phone VARCHAR(255), notes VARCHAR(255), stylist_id INT);
-   CREATE TABLE TABLE specialties ( id serial PRIMARY KEY , name VARCHAR(255));
+   CREATE TABLE specialties ( id serial PRIMARY KEY , name VARCHAR(255));
    CREATE TABLE stylists_specialties ( id serial PRIMARY KEY , stylist_id INT , specialty_id INT);
    ```
 
