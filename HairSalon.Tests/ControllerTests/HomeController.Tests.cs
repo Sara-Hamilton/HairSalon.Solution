@@ -16,7 +16,7 @@ namespace HairSalon.Controllers.Tests
             //Act
             ActionResult result = new HomeController().Index();
 
-            //Assert
+            //Assert  
             Assert.IsInstanceOfType(result, typeof(ViewResult));
         }
     }
