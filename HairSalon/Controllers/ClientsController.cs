@@ -35,7 +35,7 @@ namespace HairSalon.Controllers
     {
       Client.DeleteAll();
       List<Client> allClients = Client.GetAll();
-      return View("Index", allClients);
+      return View();
     }
 
     [HttpGet("/clients/{id}/update")]

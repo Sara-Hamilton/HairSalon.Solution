@@ -5,20 +5,34 @@
 <h2>Stylists with Specialty: @Model["specialty"].GetName()</h2>
 <hr />
 
-  <div class="well">
-    <ul>
-      @foreach (var stylist in @Model["specialtyStylists"])
-      {
-        <li>@stylist.GetName()</li>
+<div class="well">
+  @if (@Model["specialtyStylists"].Count == 0)
+  {
+    <h4>no Stylists yet</h4>
+  }
+  else
+  {
+  <ul>
+    @foreach (var stylist in @Model["specialtyStylists"])
+    {
+      <li>@stylist.GetName()</li>
       }
     </ul>
+    }
   </div>
 
   <div class="well">
-  <h4>Add a stylist to this specialty: </h4>
+  <h4>Add a Stylist to this Specialty: </h4>
+    @if (@Model["allStylists"].Count == 0)
+    {
+      <h4>Stylists must be created before they can be added</h4>
+    }
+    else
+    {
+
   <form class="form-inline" action="/specialties/@Model["specialty"].GetId()/stylists/new" method="post">
     <div class="form-group">
-      <label for="stylist-id">Select a stylist</label>
+      <label for="stylist-id">Select a Stylist</label>
       <select id="stylist-id" name="stylist-id" type="text">
         @foreach (var stylist in @Model["allStylists"])
         {
@@ -26,6 +40,8 @@
         }
       </select>
     </div>
+
     <button type="submit" class="btn btn-default">Add</button>
   </form>
+}
   </div>
